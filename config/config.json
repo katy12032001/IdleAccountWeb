@@ -1,0 +1,15 @@
+{
+  "development": {
+      "username": null,
+      "password": null,
+      "database": "database_development",
+      "option" : {
+          "dialect": "sqlite",
+          "storage":  "test.db",
+          "define": {
+              "timestamps": false,
+              "freezeTableName": true
+          }
+      }
+  }
+}
