@@ -16,6 +16,7 @@ var Entry = dbStroage.define('entry', {
     number: Sequelize.STRING,
     itsr_status: Sequelize.STRING,
     date: Sequelize.STRING,
+    uid: Sequelize.STRING,
     handle_status: Sequelize.STRING
   });
 

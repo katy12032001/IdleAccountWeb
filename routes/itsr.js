@@ -26,7 +26,17 @@ router.post('/OnUserSubmitted', function(req, res) {
   id = req.body.formId;
   console.log(nt);
   if (uid != undefined && nt != undefined && id != undefined) {
-    res.status(200).send(true);
+    db.Entry.update({
+      itsr_status: 'OnUserSubmitted',
+      uid: uid,
+      }, {
+        where: {
+          itsrNO: id
+        }
+      }).then(function(result){
+        console.log(result);
+        res.status(200).send(true);
+    });
   }else {
     res.status(200).send(false);
   }
@@ -39,7 +49,16 @@ router.post('/OnUserTerminated', function(req, res) {
   var uid;
   uid = req.body.UID;
   if (uid != undefined) {
-    res.status(200).send(true);
+    db.Entry.update({
+      itsr_status: 'OnUserTerminated',
+      }, {
+        where: {
+          uid: uid
+        }
+      }).then(function(result){
+        console.log(result);
+        res.status(200).send(true);
+    });
   }else {
     res.status(200).send(false);
   }
@@ -52,7 +71,16 @@ router.post('/OnMgrApproved', function(req, res) {
   var uid;
   uid = req.body.UID;
   if (uid != undefined) {
-    res.status(200).send(true);
+    db.Entry.update({
+      itsr_status: 'OnMgrApproved',
+      }, {
+        where: {
+          uid: uid
+        }
+      }).then(function(result){
+        console.log(result);
+        res.status(200).send(true);
+    });
   }else {
     res.status(200).send(false);
   }
@@ -65,7 +93,16 @@ router.post('/IsRejected', function(req, res) {
   var uid;
   uid = req.body.UID;
   if (uid != undefined) {
-    res.status(200).send(true);
+    db.Entry.update({
+      itsr_status: 'IsRejected',
+      }, {
+        where: {
+          uid: uid
+        }
+      }).then(function(result){
+        console.log(result);
+        res.status(200).send(true);
+    });
   }else {
     res.status(200).send(false);
   }
@@ -78,7 +115,16 @@ router.post('/IsFinished', function(req, res) {
   var uid;
   uid = req.body.UID;
   if (uid != undefined) {
-    res.status(200).send(true);
+    db.Entry.update({
+      itsr_status: 'IsFinished',
+      }, {
+        where: {
+          uid: uid
+        }
+      }).then(function(result){
+        console.log(result);
+        res.status(200).send(true);
+    });
   }else {
     res.status(200).send(false);
   }

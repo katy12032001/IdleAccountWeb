@@ -49,10 +49,22 @@ router.post('/datasummit', function (req, res) {
         }
         console.log(bresult);
         res.status(200).json(bresult);
-        
-      });
 
+      });
   });
 
+  router.post('/dataupdate', function (req, res) {
+      console.log(req.body.itsrno);
+      db.Entry.update({
+        itsr_status: req.body.status,
+        }, {
+          where: {
+            itsrNO: req.body.itsrno
+          }
+        }).then(function(result){
+          console.log(result);
+          res.status(200).json(result);
+      });
+  });
 
 module.exports = router;
