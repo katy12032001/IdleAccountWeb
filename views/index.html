@@ -14,7 +14,6 @@
 
       <div align="center">
           <h2>Account Resume</h2>
-          <!-- <h2><%=title %></h2> -->
       </div>
       <div class="container-fluid">
           <div class="row">
@@ -27,8 +26,8 @@
               <div id="accounttable">
                   <table class="table">
                       <thead>
-                          <label for="code">ITSR Request No.</label>
-                          <input type="text" class="form-control" id = "itsr">
+                          <label for="code">Series No. : <%=uid %></label>
+                          <input type="hidden" class="form-control" id = "uid" value = <%=uid %>>
                           <tr>
                               <th>Index</th>
                               <th>工號</th>
@@ -69,13 +68,9 @@
                   </div>
                 </div>
               </div>
-<!--
-
-              <form id="loginformA" action="IsSaved" method="post">
-    <div>
-        <input type="text" name="UID" value="DHHHS"></input>
-    </div>
-<input type="submit" value="Submit"></input>
-</form> -->
+            </div>
+            </div>
+            </div>
+        </div>
     </body>
 </html>

@@ -3,7 +3,7 @@ var router = express.Router();
 var db = require('../models/entry');
 
 router.post('/datasummit', function (req, res) {
-    console.log(req.body.itsrno);
+    console.log(req.body.uidno);
     console.log(req.body.accountlist);
     userList = req.body.accountlist;
     userIndex = Object.keys(userList);
@@ -19,7 +19,7 @@ router.post('/datasummit', function (req, res) {
       //       .save();
 
       result.push({
-            itsrNO: req.body.itsrno,
+            uid: req.body.uidno,
             account: userList[userIndex[i]],
             number: userIndex[i],
             itsr_status: 'DataSummit',
@@ -40,7 +40,7 @@ router.post('/datasummit', function (req, res) {
       console.log(req.body.itsrno);
       db.Entry.findAll({
         where: {
-          itsrNO: req.body.itsrno
+          uid: req.body.uidno
         }
       }).then(function(result){
         var bresult = {};

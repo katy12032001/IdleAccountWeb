@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Account Resume</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+        <link rel="shortcut icon" href="/image/favicon.ico" />
+    </head>
+    <body>
+      <script src="/javascript/jquery.min.js"></script>
+      <script src="/javascript/bootstrap.min.js"></script>
+      <script src="/javascript/feedback.js"></script>
+
+      <div align="center">
+          <h2>Account Resume Result</h2>
+
+      </div>
+      <div class="container-fluid">
+          <div class="row">
+          <div class="col-md-12">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+              Account List
+          </div>
+          <div class="panel-body">
+              <div id="accounttable">
+                  <table class="table">
+                      <thead>
+                        <label for="code">Series No. : <%=uid %></label>
+                        <input type="hidden" class="form-control" id = "uid" value = <%=uid %>>
+                          <tr>
+                              <th>Index</th>
+                              <th>工號</th>
+                              <th>NT Account</th>
+                          </tr>
+                          <tbody id="accountchecktable">
+                          </tbody>
+                      </thead>
+                  </table>
+                  <div align="right" >
+                    <button type="button" class="btn btn-primary" id="close-btn" onclick="self.close()">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>

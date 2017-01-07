@@ -2,45 +2,63 @@ total = 5;
 
 function saveData() {
   result = {};
-  itsr = "";
+  uid = "";
   n = 0;
   for (i = 1; i <= total; i++) {
       account = '#account-'+i;
       account_v = $(account).val();
       number = '#number-'+i;
       number_v = $(number).val();
-      itsr = $('#itsr').val();
-      console.log(itsr);
+      uid = $('#uid').val();
+      console.log(uid);
       if (account_v.length != 0 && number_v.length != 0){
         result[number_v] = account_v;
         n++;
       }
   }
   console.log(result);
-  var p = fetch(`/api/handle/datasummit`, {
-    credentials: 'same-origin',
-    method: 'post',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      itsrno: itsr,
-      accountlist: result,
-    }),
-  }).then(function (response) {
-    console.log("response");
-    return response.json();
-  }).then(function (json) {
-    console.log("response2");
-    console.log(json);
-    return json;
-  }).catch(function (ex) {
-    console.log('parsing failed', ex);
-  });
-
-  console.log(result);
+  // var p = fetch(`/api/handle/datasummit`, {
+  //   credentials: 'same-origin',
+  //   method: 'post',
+  //   headers: {
+  //     Accept: 'application/json',
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify({
+  //     itsrno: itsr,
+  //     accountlist: result,
+  //   }),
+  // }).then(function (response) {
+  //   console.log("response");
+  //   return response.json();
+  // }).then(function (json) {
+  //   console.log("response2");
+  //   console.log(json);
+  //   return json;
+  // }).catch(function (ex) {
+  //   console.log('parsing failed', ex);
+  // });
+  //
+  // console.log(result);
   alert('There are '+n+" accounts to be resumed" );
+  $.ajax({
+       contentType: 'application/json',
+       url:"/api/handle/datasummit",
+       data:JSON.stringify({
+           uidno: uid,
+           accountlist: result,
+         }),
+       type : "POST",
+       dataType:'json',
+       error:function(){
+          alert("失敗");
+       },
+       success:function(){
+          alert("成功");
+          window.location.href = "/feedback/"+uid;
+       }
+   });
+
 }
 
 function addLine() {
